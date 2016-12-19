@@ -1,18 +1,26 @@
 package com.zuehlke.bgre.security.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/hello")
 public class HelloController {
 
-    @RequestMapping(method= RequestMethod.GET)
-    public String sayHello(@RequestParam(required = false) String name){
+    @CrossOrigin(origins = "http://myfrontend.com")
+    @RequestMapping(method = RequestMethod.GET)
+    public String getHello(@RequestParam(required = false) String name) {
         String welcomeText = "Welcome";
-        if(name != null && !name.isEmpty()){
+        if (name != null && !name.isEmpty()) {
+            welcomeText += " " + name;
+        }
+        return welcomeText;
+    }
+
+    @RequestMapping(method = RequestMethod.POST, consumes = {MediaType.APPLICATION_JSON_VALUE})
+    public String postHello(@RequestBody(required = false) String name) {
+        String welcomeText = "Welcome";
+        if (name != null && !name.isEmpty()) {
             welcomeText += " " + name;
         }
         return welcomeText;
