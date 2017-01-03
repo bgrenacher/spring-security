@@ -42,9 +42,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout()
                 .permitAll();
 
-        // Security Headers
+        // Security Headers http://docs.spring.io/spring-security/site/docs/current/reference/html/headers.html
         // X-Content-Type-Options: nosniff set by default spring boot security
         // Cache-Control: no-cache set by default spring boot security
+        // X-Frame-Options: DENY set by default spring boot security
         http
                 .headers()
                     .contentSecurityPolicy("default-src 'self'; script-src 'self' 'unsafe-inline'; report-uri /csp")
