@@ -1,0 +1,1 @@
+INSERT INTO users (username, password_hash) VALUES ('admin', '$2a$10$QZDQ5SYfwvYFnHBEIYyjo.R8v.XAP7JItFKZcq9OI/t6xb8VbgfFW'); -- password123
