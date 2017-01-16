@@ -17,5 +17,4 @@ dependencies {
     compile("com.h2database:h2:1.4.193")
 
     testCompile("org.springframework.boot:spring-boot-starter-test:1.4.2.RELEASE")
-    testCompile("junit:junit:4.11")
 }
